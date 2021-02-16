@@ -2,6 +2,8 @@
 //node 真实dom节点
 
 function render(vnode, container){
+
+    console.log(vnode)
     //虚拟dom生成真实dom
     // step1: vnode ->node
     const node = createNode(vnode);
@@ -29,10 +31,20 @@ function render(vnode, container){
     }
 
 
+    //添加属性
+    function updateNode(node,nextVal){
+        Object.keys(nextVal)
+        .filter(k=>k !=='children')
+        .forEach(k=>{
+            node[k] = nextVal[k]
+        })
+    }
+
     //原生标签节点 div ，a
     function updateHostComponent(vnode){
         const {type,props} = vnode;
         const node = document.createElement(type);
+        updateNode(node,props)
 
         reconcileChildren(node,props.children)
         return node;
