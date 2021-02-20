@@ -32,17 +32,17 @@ class ClassComponent extends Component{
 // Fragment
 function FragmentComponent(){
   return(
-      // <>
-      //   <li>Fragment1</li>
-      //   <li>Fragment2</li>
-      // </>
+      <>
+        <li>Fragment1</li>
+        <li>Fragment2</li>
+      </>
 
       //React.Fragment写法和上面一样，支持写ke值，但是上面不支持写key值,为什么要传key值？
       //因为要做diff算法，判断这些节点能不能复用
-      <React.Fragment key="11">
-        <li>Fragment1</li>
-        <li>Fragment2</li>
-      </React.Fragment>      
+      // <React.Fragment>
+      //   <li>Fragment1</li>
+      //   <li>Fragment2</li>
+      // </React.Fragment>      
   )
 }
 
@@ -53,6 +53,10 @@ const jsx = (
     <a href="https://www.baidu.com/">kkb</a>
     {/* <FunctionComponent name="函数组件" /> */}
     <ClassComponent name="类组件" />
+    <>
+      <h1>h1</h1>
+      <h2>h2</h2>
+    </>
     <ul>
       <FragmentComponent />
     </ul>

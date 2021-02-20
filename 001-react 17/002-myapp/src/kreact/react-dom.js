@@ -31,6 +31,8 @@ function render(vnode, container){
             node = type.prototype.isReactComponent ? 
             updateClassComponent(vnode): 
             updateFunctionComponent(vnode)
+        }else{
+            
         }
 
         return node;//node: <section></section>
